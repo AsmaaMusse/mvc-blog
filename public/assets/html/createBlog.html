@@ -42,5 +42,19 @@
   </section>
   {{/if}}
 
+  <article class="blog">
+    <div class="title">
+      <h2>{{title}}</h2>
+      <h4>{{user.username}}</h4>
+      <span>{{format_date created_at}}</span>
+      <p>{{blog_text}}</p>
+    </div>
+
+    <div class="meta">
+      <a href="/blog/{{id}}"
+        >{{comments.length}} {{format_plural "comment" comments.length}}</a
+      >
+    </div>
+  </article>
   <script src="/javascript/add-blog.js"></script>
 </html>
