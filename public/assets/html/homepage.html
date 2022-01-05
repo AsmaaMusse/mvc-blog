@@ -20,37 +20,31 @@
           <a href="/">Tech Blog</a>
         </h1>
         <nav>
-          {{#if loggedIn}}
           <a href="/dashboard"
-            ><span class="glyphicon glyphicon-user"></span>{{ username }}'s
+            ><span class="glyphicon glyphicon-user"></span> username
             Dashboard</a
           >
           <button id="logout" class="btn-no-style">logout</button>
-          {{else}}
+
           <a href="/login">login</a>
-          {{/if}}
         </nav>
       </header>
       <main>
-        {{> post-info blog}} {{#if loggedIn}}
         <form class="comment-form">
           <div>
             <textarea name="comment-body"></textarea>
           </div>
 
           <div>
-            <button type="submit">add comment</button>
+            <button type="submit">Add comment</button>
           </div>
         </form>
-        {{/if}} {{> comments post.comments}} {{#if loggedIn}}
+
         <script src="/javascript/comment.js"></script>
-        {{/if}}
       </main>
-      <footer>Created by Asmaa M!</footer>
+      <footer>By Asmaa M!</footer>
     </div>
   </body>
 </html>
 
-{{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
-{{/if}}
