@@ -21,15 +21,15 @@ const schema = {
   userId: {
     type: DataTypes.INTEGER,
     references: {
-      model: "user",
+      model: "User",
       key: "id",
     },
   },
 
-  postId: {
+  BlogId: {
     type: DataTypes.INTEGER,
     references: {
-      model: "post",
+      model: "Blog",
       key: "id",
     },
   },
@@ -37,7 +37,7 @@ const schema = {
 
 const options = {
   sequelize,
-  modelName: "comment",
+  modelName: "Comment",
   freezeTableName: true,
   underscored: true,
   underscored: true,

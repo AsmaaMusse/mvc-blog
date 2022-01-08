@@ -30,7 +30,7 @@ const schema = {
 
 const options = {
   sequelize,
-  moduleName: "user",
+  moduleName: "User",
   freezeTableName: true,
   timestamps: true,
   underscored: true,
