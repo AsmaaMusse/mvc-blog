@@ -1,8 +1,16 @@
 const { Router } = require("express");
 
-const {} = require("../../controllers/api/comment");
+const {
+  createBlog,
+  updateBlogById,
+  deleteBlogById,
+} = require("../../controllers/api/blog");
 
-const {} = require("../../controllers/api/blog");
+const {
+  createComment,
+  updateCommentById,
+  deleteCommentById,
+} = require("../../controllers/api/comment");
 
 const router = Router();
 
