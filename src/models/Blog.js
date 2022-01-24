@@ -1,9 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
-const sequelize = require("../config/connection");
-
-class Blog extends Model {}
-Blog.init(schema, options);
+const connection = require("../config/connection");
 
 const schema = {
   id: {
@@ -37,11 +34,14 @@ const schema = {
 };
 
 const options = {
-  sequelize,
+  sequelize: connection,
   modelName: "Blog",
   freezeTableName: true,
   timestamps: true,
   underscored: true,
 };
+
+class Blog extends Model {}
+Blog.init(schema, options);
 
 module.exports = Blog;

@@ -1,9 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
-const sequelize = require("../config/connection");
-
-class Comment extends Model {}
-Comment.init(schema, options);
+const connection = require("../config/connection");
 
 const schema = {
   id: {
@@ -36,11 +33,14 @@ const schema = {
 };
 
 const options = {
-  sequelize,
+  sequelize: connection,
   modelName: "Comment",
   freezeTableName: true,
   underscored: true,
-  underscored: true,
 };
+
+class Comment extends Model {}
+
+Comment.init(schema, options);
 
 module.exports = Comment;
