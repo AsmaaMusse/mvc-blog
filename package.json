@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "seed": "node src/seed/index.js"
+    "dev": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +25,7 @@
     "express": "^4.17.2",
     "express-handlebars": "^6.0.2",
     "express-session": "^1.17.2",
+    "moment": "^2.29.1",
     "mysql2": "^2.3.3",
     "seed": "^0.4.4",
     "sequelize": "^6.14.1"
