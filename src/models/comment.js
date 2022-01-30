@@ -1,45 +1,44 @@
 const { Model, DataTypes } = require("sequelize");
 
-const connection = require("../config/connection");
+const sequelize = require("../config/connection");
+
+class Comment extends Model {}
 
 const schema = {
   id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
     primaryKey: true,
     autoIncrement: true,
   },
-
-  message: {
-    type: DataTypes.STRING,
+  comment: {
+    type: DataTypes.TEXT,
     allowNull: false,
   },
-
-  userId: {
+  blogId: {
     type: DataTypes.INTEGER,
+    allowNull: false,
     references: {
-      model: "User",
+      model: "blog",
       key: "id",
     },
   },
-
-  BlogId: {
+  userId: {
     type: DataTypes.INTEGER,
+    allowNull: false,
     references: {
-      model: "Blog",
+      model: "user",
       key: "id",
     },
   },
 };
 
 const options = {
-  sequelize: connection,
-  modelName: "Comment",
+  sequelize,
+  timestamps: true,
   freezeTableName: true,
   underscored: true,
+  modelName: "comment",
 };
-
-class Comment extends Model {}
 
 Comment.init(schema, options);
 

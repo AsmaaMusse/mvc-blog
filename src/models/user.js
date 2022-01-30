@@ -1,58 +1,52 @@
 const { Model, DataTypes } = require("sequelize");
 
-const connection = require("../config/connection");
+const sequelize = require("../config/connection");
+const hashPassword = require("../hooks/hashPassword");
+
+class User extends Model {}
 
 const schema = {
   id: {
     type: DataTypes.INTEGER,
-    allowNull: false,
     primaryKey: true,
     autoIncrement: true,
   },
-
-  first_name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-
-  last_name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true,
-    },
-  },
-
   username: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
     validate: {
-      len: [2, 20],
+      isAlphanumeric: true,
     },
+    unique: true,
   },
-
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      isEmail: true,
+    },
+    unique: true,
+  },
   password: {
     type: DataTypes.STRING,
     allowNull: false,
+    validate: {
+      len: [8],
+    },
   },
 };
 
 const options = {
-  sequelize: connection,
-  moduleName: "User",
-  freezeTableName: true,
+  hooks: {
+    beforeCreate: hashPassword,
+  },
+  sequelize,
   timestamps: true,
+  freezeTableName: true,
   underscored: true,
+  modelName: "user",
 };
 
-class User extends Model {}
 User.init(schema, options);
 
 module.exports = User;
