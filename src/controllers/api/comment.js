@@ -1,17 +1,26 @@
-const createComment = (req, res) => {
-  res.json({ message: "comment on blog" });
+const { Comment } = require("../../models");
+const { getPayloadWithValidFieldsOnly } = require("../../util");
+
+const createComment = async (req, res) => {
+  try {
+    const payload = getPayloadWithValidFieldsOnly(
+      ["comment", "blogId"],
+      req.body
+    );
+
+    if (Object.keys(payload).length !== 2) {
+      console.log(`[ERROR]: Failed to create comment | Invalid fields`);
+      return res.status(400).json({ success: false });
+    }
+
+    await Comment.create({ ...payload, userId: req.session.user.id });
+
+    return res.json({ success: true });
+  } catch (error) {
+    console.log(`[ERROR]: Failed to create blog | ${error.message}`);
+    return res.status(500).json({ success: false });
+  }
+  return res.json({ success: false });
 };
 
-const updateCommentById = (req, res) => {
-  res.json({ message: "update comment on blog by Id" });
-};
-
-const deleteCommentById = (req, res) => {
-  res.json({ message: "delete comment on blog by Id" });
-};
-
-module.exports = {
-  createComment,
-  updateCommentById,
-  deleteCommentById,
-};
+module.exports = { createComment };
