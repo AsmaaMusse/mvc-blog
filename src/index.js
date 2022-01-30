@@ -11,7 +11,7 @@ const helpers = require("./helpers");
 
 const SequelizeStore = connectSessionSequelize(session.Store);
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT;
 
 const sessionOptions = {
   secret: process.env.SESSION_SECRET,
