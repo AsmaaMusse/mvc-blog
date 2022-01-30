@@ -1,25 +1,11 @@
 const { Router } = require("express");
 
-const {
-  createBlog,
-  updateBlogById,
-  deleteBlogById,
-} = require("../../controllers/api/blog");
-
-const {
-  createComment,
-  updateCommentById,
-  deleteCommentById,
-} = require("../../controllers/api/comment");
+const blogs = require("./blogs");
+const comments = require("./comments");
 
 const router = Router();
 
-router.post("/blog", createBlog);
-router.put("/blog/:uuid", updateBlogById);
-router.delete("/blog/:uuid", deleteBlogById);
-
-router.post("/blog/:uuid/comment", createComment);
-router.put("/blog/:uuid/comment/:id", updateCommentById);
-router.delete("/blog/:uuid/comment/:id", deleteCommentById);
+router.use("/blogs", blogs);
+router.use("/comments", comments);
 
 module.exports = router;
