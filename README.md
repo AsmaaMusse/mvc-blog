@@ -6,7 +6,7 @@ For this project, my aim was to build a CMS-style blog site similar to a Wordpre
 
 ## Links:
 
-Deployed app:
+Deployed app: https://tech-blog-m.herokuapp.com/
 
 Github: https://github.com/AsmaaMusse/mvc-blog/tree/dev
 
