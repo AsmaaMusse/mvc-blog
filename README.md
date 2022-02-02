@@ -6,7 +6,7 @@ For this project, my aim was to build a CMS-style blog site similar to a Wordpre
 
 ## Links:
 
-Deployed app:
+Deployed app: https://tech-blog-m.herokuapp.com/
 
 Github: https://github.com/AsmaaMusse/mvc-blog/tree/dev
 
@@ -44,3 +44,7 @@ This application does not require seeding.
 ![application](./public/assets/images/tech-blog.jpg)
 
 ![signUp form](./public/assets/images/signUp-form.jpg)
+
+## Contribute
+
+To contribute or ask questions, please <a href="https://mail.google.com/mail/u/0/?tf=cm&to=asmaamusse03@gmail.com&cc&bcc&su&body&fs=1">Email</a> here
