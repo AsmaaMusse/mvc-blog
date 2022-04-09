@@ -4,6 +4,13 @@
 
 For this project, my aim was to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well.
 
+## Table of contents:
+- [Links](#links)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
+- [Contribute](#contribute)
+
 ## Links:
 
 Deployed app: https://tech-blog-m.herokuapp.com/
